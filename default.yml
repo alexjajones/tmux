@@ -1,0 +1,15 @@
+name: default
+root: <%= @settings["workspace"] %>
+attach: True
+
+startup_pane: 1
+
+windows:
+  - editor: >
+      if test -f "pyproject.toml"; 
+      then
+        poetry run nvim .
+      else
+        nvim .
+      fi
+  - term: date
