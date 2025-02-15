@@ -1,4 +1,6 @@
-selected=$(ls -d ~/src/alexjajones/*/ ~/src/alexjajones/mono/*/ ~/.config/*/ ~/src/oss/*/ | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse)
+source ./project_roots.sh
+
+selected=$(echo $PROJECT_ROOTS | xargs ls -d | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse)
 selected_name=$(echo $selected | tr "." -)
 
 if [ "$selected_name" = "" ]; then
