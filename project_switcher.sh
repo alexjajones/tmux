@@ -1,4 +1,4 @@
-source ./project_roots.sh
+source ~/.config/tmux/project_roots.sh
 
 selected=$(echo $PROJECT_ROOTS | xargs ls -d | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse)
 selected_name=$(echo $selected | tr "." -)
