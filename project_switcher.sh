@@ -1,6 +1,6 @@
 source ~/.config/tmux/project_roots.sh
 
-selected=$(echo $PROJECT_ROOTS | xargs ls -d | sed "s:$HOME/::" | sed 's:/*$::' | fzf --reverse)
+selected=$(ls -d $PROJECT_ROOTS | sed "s:$HOME/::" | sed 's:/*$::' | fzf --reverse)
 selected_name=$(echo $selected | rev | cut -d'/' -f1 | rev)
 
 if [ "$selected_name" = "" ]; then
