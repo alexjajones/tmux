@@ -6,7 +6,11 @@ startup_pane: 1
 
 windows:
   - editor: >
-      if test -f "pyproject.toml"; 
+      if test -f "build.sbt"; 
+      then
+        jenv shell 17
+        nvim .
+      elif test -f "pyproject.toml"; 
       then
         poetry run nvim .
       else
